@@ -1,5 +1,8 @@
 # TabBarViewForAndroid
 非常简单的为项目设置上TabBar
+### 效果展示
+  ![效果1](https://github.com/wp529/TabBarViewForAndroid/blob/master/pic/a.PNG)
+  ![效果2](https://github.com/wp529/TabBarViewForAndroid/blob/master/pic/b.PNG)
 ### 导入步骤
 * 下载项目，将tabbarview做为moudle导入
 * 在gradle的dependencies添加compile project(':tabbarview')
@@ -56,7 +59,7 @@
 
     </com.pzhu.tabbarview.TabBarView>
 ```
-### Page里属性解释
+### Page里属性含义
 ```
     text -> tab文字  
     icon_normal -> tab未选中时的图标
@@ -66,6 +69,14 @@
     text_color_select -> tab选中时文字颜色
     page -> tab对应的fragment tips:fragment包名加类名
 ```
-### 解释
-  TabBarView的子节点按顺序从左到右显示
+### 排列方式
+```
+  TabBar按照子节点排列顺序从左到右显示
+```
+### 多余的话
+```
+  这个目前还有许多缺点，希望各位在使用的过程中有想要实现的需求或者不足的地方与我联系
+  15680351591@163.com
+  谢谢
+```
  
