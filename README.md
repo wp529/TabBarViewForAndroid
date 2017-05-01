@@ -73,6 +73,43 @@
 ```
   TabBar按照子节点排列顺序从左到右显示
 ```
+### 需要注意的地方
+fragment在每次显示到界面的时候都要进行重绘(了解fragment的应该知道这个机制)，就是会多次调用onCreateView()方法，为了避免这个重复的重绘，所以需要在fragment里进行缓存，参考代码
+```
+public class AFragment extends Fragment {
+    private View rootView;
+    private ProgressDialog myDialog;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (rootView == null) {
+            TextView tv = new TextView(getActivity());
+            tv.setText("AFragment");
+            myDialog = new ProgressDialog(getActivity());
+            myDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            myDialog.setMessage("处理中……");
+            myDialog.setIndeterminate(false);
+            myDialog.setCancelable(false);
+            myDialog.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    myDialog.dismiss();
+                }
+            },3000);
+            rootView = tv;
+        }
+        ViewGroup parent = (ViewGroup) rootView.getParent();
+        if (parent != null) {
+            parent.removeView(rootView);
+        }
+        return rootView;
+    }
+}
+```
+这是我测试用的，你们可以根据自己的需求来进行这部分。
 ### 多余的话
 ```
   这个目前还有许多缺点，希望各位在使用的过程中有想要实现的需求或者不足的地方与我联系
