@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.pzhu.tabbartest.MainActivity">
+
+    <com.pzhu.tabbarview.TabBarView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.pzhu.tabbarview.Page
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:page="com.pzhu.tabbartest.fragment.AFragment"
+            app:text="首页"
+            app:icon_normal="@drawable/tab1"
+            app:icon_select="@drawable/tab_click1"
+            app:checked="true"
+            app:text_color_normal="#777"
+            app:text_color_select="#f00"
+            />
+
+        <com.pzhu.tabbarview.Page
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:page="com.pzhu.tabbartest.fragment.BFragment"
+            app:text="个人中心"
+            app:icon_normal="@drawable/tab2"
+            app:icon_select="@drawable/tab_click2"
+            app:text_color_normal="#777"
+            app:text_color_select="#f00" />
+
+    </com.pzhu.tabbarview.TabBarView>
+</RelativeLayout>
